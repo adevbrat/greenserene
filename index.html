@@ -127,7 +127,7 @@ home(){return `<section class="hero fade"><h1>Wake up to <em>green</em> in the m
 listing(k){const d=D[k];return `<section class="wrap fade"><div class="lh"><p class="eyebrow">${d.n} / ${d.guests} · ${d.beds} · ${d.baths} · ★ ${d.rate}</p><h1>${d.t}</h1><p class="serif" style="font-size:26px;font-style:italic;margin-top:18px;max-width:34ch">${d.sub}</p></div>
 <div class="gal">${d.gal.map((f,i)=>`<img class="g${i}" ${i?'loading="lazy"':''} src="${im(d.id,f)}" alt="${d.t} photo ${i+1}">`).join('')}</div>
 <div class="cols"><div><h2>The space</h2><p><b>${d.pitch}</b></p>${d.body.map(p=>`<p>${p}</p>`).join('')}
-<h2>Where you’ll sleep</h2><div class="beds">${d.sleep.map(s=>`<figure><img loading="lazy" src="${im(d.id,s[0]+'.jpeg',500)}" alt="${s[1]}">${s[1]}<br><span style="color:var(--mute)">${s[2]} bed</span></figure>`).join('')}</div>
+<h2>Where you’ll sleep</h2><div class="beds">${d.sleep.map(s=>`<figure><img loading="lazy" src="${im(d.id,s[0]+'.jpeg',960)}" alt="${s[1]}">${s[1]}<br><span style="color:var(--mute)">${s[2]} bed</span></figure>`).join('')}</div>
 <h2>What’s offered</h2><ul class="am">${d.am.map(a=>`<li>${a}</li>`).join('')}</ul>
 <h2>Good to know</h2>${d.notes.map(p=>`<p>${p}</p>`).join('')}
 <p><a href="https://www.airbnb.co.in/rooms/${d.id}" target="_blank" rel="noopener" style="border-bottom:1px solid var(--clay)">See all reviews &amp; photos on Airbnb ↗</a></p></div>
