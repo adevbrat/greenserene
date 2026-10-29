@@ -19,12 +19,12 @@ nav a{margin-left:22px;text-decoration:none;font-size:14px;letter-spacing:.08em;
 nav a:hover,nav a.on{border-color:var(--clay)}
 .call{background:var(--ink);color:var(--paper);padding:8px 16px;border-radius:99px;text-decoration:none;font-size:14px}
 .hero{display:grid;grid-template-columns:repeat(12,1fr);gap:0 20px;padding-top:4vh;position:relative}
-.hero h1{grid-column:1/10;font-size:clamp(52px,10.5vw,170px);padding-left:clamp(20px,5vw,72px)}
+.hero{align-items:start;padding-top:1vh}.hero h1{grid-column:1/7;grid-row:1;font-size:clamp(36px,5vw,78px);line-height:1.04;padding-left:clamp(20px,5vw,72px);padding-top:4vh}
 .hero h1 em{color:var(--clay);font-style:italic}
-.hero .pic{grid-column:6/13;margin-top:-4vw;position:relative;z-index:-1}
-.hero .pic img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:220px 0 0 0}
-.hero .side{grid-column:1/5;padding-left:clamp(20px,5vw,72px);margin-top:-14vw;max-width:420px}
-.stamp{position:absolute;right:6vw;top:34vh;width:128px;height:128px;border-radius:50%;border:1px solid var(--clay);color:var(--clay);display:grid;place-items:center;text-align:center;font:italic 15px/1.2 Fraunces,serif;transform:rotate(-12deg);background:var(--paper)}
+.hero .pic{grid-column:7/13;grid-row:1/3;margin:0}
+.hero .pic img{width:100%;height:min(74vh,640px);object-fit:cover;border-radius:240px 0 0 0}
+.hero .side{grid-column:1/6;grid-row:2;padding-left:clamp(20px,5vw,72px);margin-top:24px;max-width:440px;font-size:16px;line-height:1.6}
+.stamp{position:absolute;left:calc(50% - 20px);bottom:7%;width:128px;height:128px;border-radius:50%;border:1px solid var(--clay);color:var(--clay);display:grid;place-items:center;text-align:center;font:italic 15px/1.2 Fraunces,serif;transform:rotate(-12deg);background:var(--paper)}
 .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--clay);margin-bottom:12px}
 .btn{display:inline-block;margin-top:20px;padding:12px 24px;border:1px solid var(--ink);border-radius:99px;text-decoration:none;font-size:15px;transition:.25s}
 .btn:hover,.btn.fill{background:var(--ink);color:var(--paper)}.btn.fill:hover{background:var(--clay);border-color:var(--clay)}
@@ -69,15 +69,15 @@ footer{background:var(--ink);color:var(--paper);margin-top:10vh;padding:60px cla
 footer h4{font:italic 300 30px Fraunces,serif;margin-bottom:8px}footer a{display:block;text-decoration:none;opacity:.8;padding:2px 0}footer a:hover{opacity:1;color:var(--clay)}
 footer small{grid-column:1/-1;opacity:.5;font-size:12px}
 .fade{animation:f .7s ease both}@keyframes f{from{opacity:0;transform:translateY(14px)}}
-@media(max-width:800px){.hero h1{grid-column:1/-1}.hero .pic{grid-column:1/-1;margin-top:20px}.hero .side{grid-column:1/-1;margin-top:20px}.stamp{display:none}
+@media(max-width:800px){.hero h1{grid-column:1/-1;grid-row:auto;padding-right:20px}.hero .pic{grid-column:1/-1;grid-row:auto;margin-top:16px}.hero .pic img{height:auto;aspect-ratio:4/3;border-radius:120px 0 0 0}.hero .side{grid-column:1/-1;grid-row:auto;margin-top:20px;padding-right:20px}.stamp{display:none}
 .c1,.c2,.c3{grid-column:1/-1;margin-top:0}.story,.cols,footer{grid-template-columns:1fr}.gal .g0,.gal .g1,.gal .g2,.gal .g3{grid-column:1/-1;margin:0;border-radius:0;aspect-ratio:4/3}ul.am{columns:1}.panel{position:static}nav a{margin:0 14px 0 0}}
 </style></head><body>
 <header><a class="logo" href="#/">Green &amp; Serene</a>
 <nav><a href="#/" data-n="home">Home</a><a href="#/whole-house" data-n="whole-house">Whole house</a><a href="#/first-floor" data-n="first-floor">First floor</a><a href="#/ground-floor" data-n="ground-floor">Ground floor</a><a href="#/contact" data-n="contact">Contact</a></nav>
 <span><a class="call" data-tel href="#">Call to book</a> <a class="call" data-wa target="_blank" rel="noopener" href="#" style="background:#1f7a46">WhatsApp</a></span></header>
 <main id="app"></main>
-<section class="wrap map" style="margin-top:12vh"><p class="eyebrow">Find us</p><h2 class="serif" style="font-size:clamp(34px,5vw,72px)">A-56, Police Colony,<br><em>Anisabad, Patna.</em></h2><p style="margin-top:12px">A-56, Police Colony, Anisabad, Patna, Bihar – 800002 · <a href="https://www.google.com/maps/search/?api=1&query=A-56%2C+Police+Colony%2C+Anisabad%2C+Patna%2C+Bihar+800002" target="_blank" rel="noopener" style="border-bottom:1px solid var(--clay)">Open in Google Maps ↗</a></p>
-<iframe title="Map: A-56, Police Colony, Anisabad, Patna" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=A-56%2C+Police+Colony%2C+Anisabad%2C+Patna%2C+Bihar+800002&output=embed"></iframe></section>
+<section class="wrap map" style="margin-top:12vh"><p class="eyebrow">Find us</p><h2 class="serif" style="font-size:clamp(34px,5vw,72px)">A-56, Police Colony,<br><em>Anisabad, Patna.</em></h2><p style="margin-top:12px">A-56, Police Colony, Anisabad, Patna, Bihar – 800002 · <a href="https://maps.app.goo.gl/MKzx9w4muDRtAsYe9" target="_blank" rel="noopener" style="border-bottom:1px solid var(--clay)">Open in Google Maps ↗</a></p>
+<iframe title="Map: A-56, Police Colony, Anisabad, Patna" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=25.5866006,85.0908929&z=17&output=embed"></iframe></section>
 <footer><div><h4>Green &amp; Serene</h4><p>A garden bungalow in Anisabad, Patna.<br>Book by phone — we answer.</p><p style="margin-top:14px"><span id="fp"></span><a data-mail href="#"></a></p></div>
 <div><h4>Stay</h4><a href="#/whole-house">Whole house</a><a href="#/first-floor">First floor</a><a href="#/ground-floor">Ground floor</a><a href="#/contact">Contact</a></div>
 <div><h4>Find us</h4><a data-s="google" target="_blank" rel="noopener">Google</a><a data-s="insta" target="_blank" rel="noopener">Instagram</a><a data-s="fb" target="_blank" rel="noopener">Facebook</a><a data-s="site" target="_blank" rel="noopener">homestaypatna.com</a></div>
