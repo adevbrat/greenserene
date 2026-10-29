@@ -48,13 +48,13 @@ nav a:hover,nav a.on{border-color:var(--clay)}
 .gal img{width:100%;height:100%;object-fit:cover}
 .gal .g0{grid-column:1/8;grid-row:span 2;aspect-ratio:4/3;border-radius:0 120px 0 0}.gal .g1{grid-column:8/13;aspect-ratio:4/3}
 .gal .g2{grid-column:8/11;aspect-ratio:1}.gal .g3{grid-column:11/13;aspect-ratio:1/1.5;margin-top:-20px;border-radius:99px 99px 0 0}
-.cols{display:grid;grid-template-columns:7fr 4fr;gap:6vw;align-items:start;margin-bottom:10vh}
+.cols>*{min-width:0}.cols{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:6vw;align-items:start;margin-bottom:10vh}
 .cols h2{font-size:34px;margin:2em 0 .5em}.cols h2:first-child{margin-top:0}
 .cols p{margin-bottom:1em;max-width:62ch}
 ul.am{list-style:none;padding:0;columns:2;column-gap:30px}ul.am li{padding:7px 0;border-bottom:1px dotted var(--sand);break-inside:avoid}
 .beds{display:flex;gap:14px;overflow-x:auto;padding-bottom:10px}.beds figure{flex:0 0 170px;font-size:14px}.beds img{aspect-ratio:1;object-fit:cover;margin-bottom:6px;border-radius:6px}
 .panel{position:sticky;top:20px;background:var(--sand);padding:26px;border-radius:4px 60px 4px 4px}
-.panel h3{font-size:28px;margin-bottom:6px}.panel .btn{display:block;text-align:center;margin-top:12px}
+.panel h3{font-size:28px;margin-bottom:6px}.panel .btn{display:block;text-align:center;margin-top:12px}.pair{display:flex;gap:8px}.pair .btn{flex:1;padding:11px 6px;margin-top:6px}.map iframe{width:100%;height:440px;border:0;border-radius:0 120px 0 0;margin-top:24px;filter:saturate(.8) sepia(.12)}
 .cal-h{display:flex;justify-content:space-between;align-items:center;margin:16px 0 8px;font:italic 20px Fraunces,serif}
 .cal-h button{background:none;border:1px solid var(--ink);color:var(--ink);width:30px;height:30px;border-radius:50%;cursor:pointer}
 .cal{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;text-align:center;font-size:13px}
@@ -74,15 +74,17 @@ footer small{grid-column:1/-1;opacity:.5;font-size:12px}
 </style></head><body>
 <header><a class="logo" href="#/">Green &amp; Serene</a>
 <nav><a href="#/" data-n="home">Home</a><a href="#/whole-house" data-n="whole-house">Whole house</a><a href="#/first-floor" data-n="first-floor">First floor</a><a href="#/ground-floor" data-n="ground-floor">Ground floor</a><a href="#/contact" data-n="contact">Contact</a></nav>
-<a class="call" data-tel href="#">Call to book</a></header>
+<span><a class="call" data-tel href="#">Call to book</a> <a class="call" data-wa target="_blank" rel="noopener" href="#" style="background:#1f7a46">WhatsApp</a></span></header>
 <main id="app"></main>
-<footer><div><h4>Green &amp; Serene</h4><p>A garden bungalow in Anisabad, Patna.<br>Book by phone — we answer.</p><p style="margin-top:14px"><a data-tel href="#"></a><a data-mail href="#"></a></p></div>
+<section class="wrap map" style="margin-top:12vh"><p class="eyebrow">Find us</p><h2 class="serif" style="font-size:clamp(34px,5vw,72px)">A-56, Police Colony,<br><em>Anisabad, Patna.</em></h2><p style="margin-top:12px">A-56, Police Colony, Anisabad, Patna, Bihar – 800002 · <a href="https://www.google.com/maps/search/?api=1&query=A-56%2C+Police+Colony%2C+Anisabad%2C+Patna%2C+Bihar+800002" target="_blank" rel="noopener" style="border-bottom:1px solid var(--clay)">Open in Google Maps ↗</a></p>
+<iframe title="Map: A-56, Police Colony, Anisabad, Patna" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=A-56%2C+Police+Colony%2C+Anisabad%2C+Patna%2C+Bihar+800002&output=embed"></iframe></section>
+<footer><div><h4>Green &amp; Serene</h4><p>A garden bungalow in Anisabad, Patna.<br>Book by phone — we answer.</p><p style="margin-top:14px"><span id="fp"></span><a data-mail href="#"></a></p></div>
 <div><h4>Stay</h4><a href="#/whole-house">Whole house</a><a href="#/first-floor">First floor</a><a href="#/ground-floor">Ground floor</a><a href="#/contact">Contact</a></div>
 <div><h4>Find us</h4><a data-s="google" target="_blank" rel="noopener">Google</a><a data-s="insta" target="_blank" rel="noopener">Instagram</a><a data-s="fb" target="_blank" rel="noopener">Facebook</a><a data-s="site" target="_blank" rel="noopener">homestaypatna.com</a></div>
 <small>© <span id="yr"></span> Green &amp; Serene, Patna.</small></footer>
 <script>
 /* ====== EDIT THESE ====== */
-const C={phone:"+91 88004 93706",tel:"+918287838393",email:"ashu.devbrat@homestaypatna.com",
+const C={phones:[["88004 93706","+918800493706"],["82878 38393","+918287838393"]],email:"green.serene@homestaypatna.com",
  s:{google:"https://share.google/dNKe1BHSkEmOVbLPg",insta:"https://www.instagram.com/greenserenepatna/",fb:"https://www.facebook.com/p/Green-Serene-Patna-61584649778398/",site:"https://www.homestaypatna.com/"}};
 /* ======================== */
 const im=(l,f,w=1200)=>`https://a0.muscache.com/im/pictures/hosting/Hosting-${l}/original/${f}?im_w=${w}`;
@@ -111,15 +113,18 @@ const D={
  sleep:[["f6288392-81a3-4685-8467-375270d4098f","Bedroom 1","King"],["27cee009-f8d0-4375-bf8d-0b063e575e48","Bedroom 2","Queen"],["3c2f39ed-8248-4ee4-8d64-c2f6f21d67e0","Bedroom 3","Queen"],["c5603898-f62d-452c-b6ea-8e219dd123d0","Bedroom 4","Queen"]],
  gal:["a5465773-b4d2-4df4-908b-86afb9129a8f.jpeg","bcb79d65-0372-4423-90cc-737e364b7d8b.jpeg","60c4fd45-a4c7-4036-92d2-fe8b07a12af4.jpeg","b1756b22-d76f-4da7-8883-4cd5050e831e.jpeg"],
  notes:["No smoking indoors — lawn and terrace are fine.","We prefer families, couples and working professionals; tell us group size and purpose when you call.","Please keep mesh doors closed; repellents provided."]}};
+C.phone="+91 "+C.phones[0][0];C.tel=C.phones[0][1];
 const $=s=>document.querySelector(s),app=$('#app');
 let AV={listings:{}};
 fetch('data/availability.json?'+Date.now()).then(r=>r.json()).then(j=>{AV=j;if(window.cal)window.cal()}).catch(()=>{});
-const tel=`<a class="big" href="tel:${C.tel}">${C.phone}</a>`;
+const wa=t=>'https://wa.me/'+t.replace('+','')+'?text='+encodeURIComponent('Hi, I’d like to check availability at Green & Serene.');
+const tel=C.phones.map(p=>`<div style="margin-bottom:14px"><a class="big" href="tel:${p[1]}">+91 ${p[0]}</a><a class="btn" style="margin-top:10px" target="_blank" rel="noopener" href="${wa(p[1])}">Connect on WhatsApp ↗</a></div>`).join('');
+const ctas=()=>C.phones.map(p=>`<p class="eyebrow" style="margin:16px 0 0">+91 ${p[0]}</p><div class="pair"><a class="btn fill" href="tel:${p[1]}">Call to book</a><a class="btn" target="_blank" rel="noopener" href="${wa(p[1])}">WhatsApp</a></div>`).join('');
 const hero=(k)=>im(D[k].id,D[k].gal[0]);
 const pg={
-home(){return `<section class="hero fade"><h1>Wake up to <em>green</em> in the middle of Patna.</h1>
+home(){return `<section class="hero fade"><h1>Wake up to <em>Greenery &amp; Tranquility</em> in the middle of Patna.</h1>
 <div class="pic"><img src="${hero('whole-house')}" alt="Green & Serene bungalow"></div>
-<div class="side"><p class="eyebrow">Anisabad · Police Colony</p><p>A rare bungalow open on three sides, facing a park, ten minutes from the airport. Take the whole house or just a floor — and book by simply picking up the phone.</p><a class="btn fill" data-tel href="#">Call to book</a></div>
+<div class="side"><p class="eyebrow">Anisabad · Police Colony</p><p>A rare bungalow open on three sides, facing a park, ten minutes from the airport. Take the whole house or just a floor — and book by simply picking up the phone.</p><a class="btn fill" data-tel href="#">Call to book</a> <a class="btn" data-wa target="_blank" rel="noopener" href="#">Connect on WhatsApp</a></div>
 <div class="stamp">8 rooms,<br>2 floors,<br>1 lawn</div></section>
 <div class="marq"><span>Garden bungalow · Park facing · 10 min from the airport · 24/7 caretaker · Daily housekeeping · Superhost · Garden bungalow · Park facing · 10 min from the airport · 24/7 caretaker · Daily housekeeping · Superhost · </span></div>
 <section class="wrap"><div class="cards">${['whole-house','first-floor','ground-floor'].map((k,i)=>`<a class="card c${i+1}" href="#/${k}"><div class="fr"><img loading="lazy" src="${hero(k)}" alt="${D[k].t}"></div><span class="num">${D[k].n}</span><h3>${D[k].t}</h3><p>${D[k].sub}</p><p class="eyebrow" style="margin-top:8px">${D[k].guests} · ${D[k].beds} →</p></a>`).join('')}</div>
@@ -134,7 +139,7 @@ listing(k){const d=D[k];return `<section class="wrap fade"><div class="lh"><p cl
 <aside class="panel"><p class="eyebrow">Availability</p><h3>Book by phone</h3><p style="font-size:15px">Check the dates below, then call us — we’ll confirm and share the details.</p>
 <div class="cal-h"><button id="pv" aria-label="Previous month">‹</button><span id="mt"></span><button id="nx" aria-label="Next month">›</button></div><div class="cal" id="cal"></div>
 <p class="key"><span style="background:var(--moss);opacity:.4;padding:0 8px">&nbsp;</span> free &nbsp; <span style="background:var(--clay);opacity:.6;padding:0 8px">&nbsp;</span> booked · <span id="up"></span></p>
-<a class="btn fill" data-tel href="#">Call ${C.phone}</a><a class="btn" data-wa target="_blank" rel="noopener" href="#">WhatsApp</a></aside></div></section>`},
+${ctas()}</aside></div></section>`},
 contact(){return `<section class="wrap contact fade"><p class="eyebrow" style="margin-top:6vh">Bookings &amp; questions</p><h1>Just <em style="color:var(--clay)">call us.</em></h1>
 ${tel}<a class="big" style="font-size:clamp(22px,3vw,38px);margin-top:20px" href="mailto:${C.email}">${C.email}</a>
 <p style="margin-top:28px;max-width:56ch">Tell us your dates, group size and the purpose of your trip, and we’ll confirm availability and the right option — whole house, first floor or ground floor.<br><br>A Sector, Police Colony, Anisabad, Patna, Bihar. Exact address shared on booking.</p>
@@ -142,12 +147,12 @@ ${tel}<a class="big" style="font-size:clamp(22px,3vw,38px);margin-top:20px" href
 function route(){const r=(location.hash.replace('#/','')||'home');const k=D[r]?r:(r==='contact'?'contact':'home');
  app.innerHTML=D[k]?pg.listing(k):pg[k]();document.title=(D[k]?D[k].t+' — ':'')+'Green & Serene, Patna';window.scrollTo(0,0);
  document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('on',a.dataset.n===k));wire();if(D[k])calendar(D[k].k)}
-function wire(){document.querySelectorAll('[data-tel]').forEach(a=>{a.href='tel:'+C.tel;if(!a.textContent.trim()||a.classList.contains('call')===false&&a.parentElement.tagName==='P')a.textContent=a.textContent.trim()||C.phone});
+function wire(){if($('#fp'))$('#fp').innerHTML=C.phones.map(p=>`<a href="tel:${p[1]}">+91 ${p[0]}</a>`).join('');document.querySelectorAll('[data-tel]').forEach(a=>{a.href='tel:'+C.tel;if(!a.textContent.trim()||a.classList.contains('call')===false&&a.parentElement.tagName==='P')a.textContent=a.textContent.trim()||C.phone});
  document.querySelectorAll('[data-mail]').forEach(a=>{a.href='mailto:'+C.email;a.textContent=C.email});
  document.querySelectorAll('[data-wa]').forEach(a=>a.href='https://wa.me/'+C.tel.replace('+','')+'?text='+encodeURIComponent('Hi, I’d like to check availability at Green & Serene.'));
  document.querySelectorAll('[data-s]').forEach(a=>a.href=C.s[a.dataset.s])}
 function calendar(key){let off=0;const iso=d=>d.toISOString().slice(0,10);
- const draw=()=>{const t=new Date(),m=new Date(t.getFullYear(),t.getMonth()+off,1),days=new Date(m.getFullYear(),m.getMonth()+1,0).getDate();
+ const draw=()=>{if(!$('#cal'))return;const t=new Date(),m=new Date(t.getFullYear(),t.getMonth()+off,1),days=new Date(m.getFullYear(),m.getMonth()+1,0).getDate();
   const R=(AV.listings[key]||[]);const booked=s=>R.some(r=>s>=r[0]&&s<r[1]);let h='';
   ['S','M','T','W','T','F','S'].forEach(x=>h+=`<i>${x}</i>`);for(let i=0;i<m.getDay();i++)h+='<span></span>';
   for(let d=1;d<=days;d++){const dt=new Date(Date.UTC(m.getFullYear(),m.getMonth(),d)),s=iso(dt),past=dt<Date.UTC(t.getFullYear(),t.getMonth(),t.getDate());
