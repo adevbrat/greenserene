@@ -1,0 +1,22 @@
+name: Sync Airbnb calendars
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python scripts/sync_calendar.py
+        env:
+          ICAL_WHOLE: ${{ secrets.ICAL_WHOLE }}
+          ICAL_FIRST: ${{ secrets.ICAL_FIRST }}
+          ICAL_GROUND: ${{ secrets.ICAL_GROUND }}
+      - run: |
+          git config user.name "calendar-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data/availability.json
+          git diff --staged --quiet || (git commit -m "Update availability" && git push)
